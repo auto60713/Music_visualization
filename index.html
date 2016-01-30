@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="d3.v3.min.js" charset="utf-8"></script>
+</head>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #332D2D;
+  overflow: hidden;
+}
+svg{
+margin: 0px 20px;
+}
+
+</style>
+<body>
+   <audio id="audioElement" src="bgm.mp3"></audio>
+    <div>
+      <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
+      <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
+      <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
+      <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+    </div>
+</body>
+<script src="mode1.js" charset="utf-8"></script>
+</html>

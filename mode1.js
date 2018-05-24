@@ -10,9 +10,9 @@ $(document).ready(function () {
   audioSrc.connect(audioCtx.destination);
 
   //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-  var frequencyData = new Uint8Array(50);
+  var frequencyData = new Uint8Array(30);
 
-  var svgHeight = $( window ).height()-25;
+  var svgHeight = $( window ).height()-56;
   var svgWidth  = $( window ).width()-40;
   var barPadding = '6';
 
@@ -30,7 +30,10 @@ $(document).ready(function () {
      .attr('x', function (d, i) {
         return i * (svgWidth / frequencyData.length);
      })
-     .attr('width', svgWidth / frequencyData.length - barPadding);
+     .attr('width', svgWidth / frequencyData.length - barPadding)
+     .attr('index', function (d, i) {
+        return i;
+     });
 
   // Continuously loop and update chart with frequency data.
   function renderChart() {
@@ -43,10 +46,10 @@ $(document).ready(function () {
      svg.selectAll('rect')
         .data(frequencyData)
         .attr('y', function(d) {
-           return svgHeight - d;
+           return svgHeight - (d*1.6);
         })
         .attr('height', function(d) {
-           return d;
+           return (d*1.6);
         })
         .attr('fill', function(d) {
            return 'rgb(255, 255, 255)';
